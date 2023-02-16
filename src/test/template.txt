@@ -1,0 +1,36 @@
+//#region imports and constants
+let the_Total_TestedFunctions_InThis_File :number= 0;
+//#endregion
+
+//---------------------------------------------------------------------------------------------
+beforeAll(async () => {
+        await before_All_Tests();
+});
+describe("......The Active describe......", () => {
+    
+    func_1();
+});
+
+describe.skip("......The Skipped describe......", () => {});
+afterAll(async () => {
+        await after_All_Tests();
+});
+
+test("Have all the tests in this file got executed ?", () => {
+    
+    expect(the_Total_TestedFunctions_InThis_File).toEqual(3354534);
+});
+//---------------------------------------------------------------------------------------------
+function func_1(){
+    
+test("......tests the function ----> func_1",()=>{
+    
+        let theTests_Counter_ForThis_Function :number = 0;
+
+
+        const theTotalTests_ForThisFunction :number= 1123453453;
+        expect(theTests_Counter_ForThis_Function).toEqual(theTotalTests_ForThisFunction);
+
+        the_Total_TestedFunctions_InThis_File++;
+})
+}

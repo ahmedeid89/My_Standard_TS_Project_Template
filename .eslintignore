@@ -1,0 +1,8 @@
+other/
+node_modules/
+map/
+coverage/
+dist/
+backup_of_dist/
+local_database/
+backup_of_local_database/
