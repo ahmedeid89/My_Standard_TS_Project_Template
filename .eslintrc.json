@@ -1,34 +1,37 @@
 {
-        "env": {
-                "browser": true,
-                "es2021": true,
-                "node": true
-        },
-        "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-        "parser": "@typescript-eslint/parser",
-        "parserOptions": {
-                "ecmaVersion": "latest",
-                "sourceType": "module",
-                "project": "./tsconfig.eslint.json"
-        },
-        "plugins": ["@typescript-eslint"],
-        "rules": {
-                "@typescript-eslint/no-floating-promises": ["error"],
-                "no-console": "error",
-                "default-case": "error",
-                "eqeqeq": "error",
-                "no-dupe-keys": "error",
-                "no-duplicate-imports": "error",
-                "no-dupe-args": "error",
-                "no-unreachable": "error",
-                "no-unsafe-negation": "error",
-                "no-implicit-globals": "error",
-                "semi": "error",
-                "@typescript-eslint/no-inferrable-types": "off",
-                "@typescript-eslint/ban-ts-comment": "off",
-                "@typescript-eslint/no-empty-function": "off",
-                "@typescript-eslint/no-explicit-any": "off",
-                "no-prototype-builtins": "off",
-                "no-useless-escape": "off"
-        }
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module",
+		"project": "./tsconfig.eslint.json"
+	},
+	"plugins": ["@typescript-eslint"],
+	"rules": {
+		"@typescript-eslint/no-floating-promises": ["error"],
+		"no-console": "error",
+		"default-case": "error",
+		"eqeqeq": "error",
+		"no-dupe-keys": "error",
+		"no-duplicate-imports": "error",
+		"no-dupe-args": "error",
+		"no-unreachable": "error",
+		"no-unsafe-negation": "error",
+		"no-implicit-globals": "error",
+		"semi": "error",
+		"@typescript-eslint/explicit-function-return-type": "error",
+		"prefer-const": "off",
+		"@typescript-eslint/no-inferrable-types": "off",
+		"@typescript-eslint/naming-convention": "off",
+		"@typescript-eslint/ban-ts-comment": "off",
+		"@typescript-eslint/no-empty-function": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"no-prototype-builtins": "off",
+		"no-useless-escape": "off"
+	}
 }
