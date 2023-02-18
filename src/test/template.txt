@@ -9,7 +9,8 @@ let the_Promise_Of_Before: Promise<void>;
 let the_Promise_Of_describe: Promise<void>;
 let the_Promise_Of_skip: Promise<void>;
 beforeAll(async () => {
-	the_Promise_Of_Before = before_All_Tests();
+	await before_All_Tests();
+	the_Promise_Of_Before = giveMe_An_Empty_Promised_With_ResolvedState();
 });
 describe("......The Active describe......", async () => {
 	//------
@@ -17,18 +18,14 @@ describe("......The Active describe......", async () => {
 	//------
 	func_1();
 	//------
-	the_Promise_Of_describe = new Promise((res) => {
-		res(undefined);
-	});
+	the_Promise_Of_describe = giveMe_An_Empty_Promised_With_ResolvedState();
 });
 
-describe.skip("......The Skipped describe......", async () => {
+describe.skip("......The Skipped......", async () => {
 	//------
 	await the_Promise_Of_describe;
 	//------
-	the_Promise_Of_skip = new Promise((res) => {
-		res(undefined);
-	});
+	the_Promise_Of_skip = giveMe_An_Empty_Promised_With_ResolvedState();
 });
 afterAll(async () => {
 	//------
@@ -37,7 +34,7 @@ afterAll(async () => {
 	await after_All_Tests();
 });
 
-test("Have all the tests in this file got executed ?", () => {
+test("Did all the tests in this file get executed?", () => {
 	expect(the_Total_TestedFunctions_InThis_File).toEqual(3354534);
 });
 //---------------------------------------------------------------------------------------------
@@ -51,3 +48,10 @@ function func_1(): void {
 		the_Total_TestedFunctions_InThis_File++;
 	});
 }
+//---------------------------------------------------------------------------------------------
+function giveMe_An_Empty_Promised_With_ResolvedState(): Promise<undefined> {
+	return new Promise((res) => {
+		res(undefined);
+	});
+}
+//---------------------------------------------------------------------------------------------
