@@ -1,18 +1,40 @@
 //#region imports and constants
+import { before_All_Tests } from "../general_before_all_tests";
+import { after_All_Tests } from "../general_after_all_tests";
 let the_Total_TestedFunctions_InThis_File: number = 0;
 //#endregion
 
 //---------------------------------------------------------------------------------------------
+let the_Promise_Of_Before: Promise<void>;
+let the_Promise_Of_describe: Promise<void>;
+let the_Promise_Of_skip: Promise<void>;
 beforeAll(async () => {
-	//   await before_All_Tests();
+	the_Promise_Of_Before = before_All_Tests();
 });
-describe("......The Active describe......", () => {
+describe("......The Active describe......", async () => {
+	//------
+	await the_Promise_Of_Before;
+	//------
 	func_1();
+	//------
+	the_Promise_Of_describe = new Promise((res) => {
+		res(undefined);
+	});
 });
 
-describe.skip("......The Skipped describe......", () => {});
+describe.skip("......The Skipped describe......", async () => {
+	//------
+	await the_Promise_Of_describe;
+	//------
+	the_Promise_Of_skip = new Promise((res) => {
+		res(undefined);
+	});
+});
 afterAll(async () => {
-	//   await after_All_Tests();
+	//------
+	await the_Promise_Of_skip;
+	//------
+	await after_All_Tests();
 });
 
 test("Have all the tests in this file got executed ?", () => {
