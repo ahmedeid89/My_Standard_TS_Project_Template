@@ -1,6 +1,6 @@
 //--------------------------------------------------------------------------------------------------
-export { after_All_Tests };
+export { general_After_All_Tests };
 //--------------------------------------------------------------------------------------------------
-async function after_All_Tests() {
-        //no code yet
+async function general_After_All_Tests(): Promise<void> {
+	return undefined;
 }

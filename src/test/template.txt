@@ -1,6 +1,6 @@
 //#region imports and constants
-import { before_All_Tests } from "../general_before_all_tests";
-import { after_All_Tests } from "../general_after_all_tests";
+import { general_Before_All_Tests } from "../General_Before_All_Tests";
+import { general_After_All_Tests } from "../General_After_All_Tests";
 let the_Total_TestedFunctions_InThis_File: number = 0;
 //#endregion
 
