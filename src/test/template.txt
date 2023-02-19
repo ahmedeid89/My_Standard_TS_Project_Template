@@ -5,53 +5,42 @@ let the_Total_TestedFunctions_InThis_File: number = 0;
 //#endregion
 
 //---------------------------------------------------------------------------------------------
-let the_Promise_Of_Before: Promise<void>;
-let the_Promise_Of_describe: Promise<void>;
-let the_Promise_Of_skip: Promise<void>;
+//#region The Top level
 beforeAll(async () => {
 	await before_All_Tests();
-	the_Promise_Of_Before = giveMe_An_Empty_Promised_With_ResolvedState();
 });
-describe("......The Active describe......", async () => {
-	//------
-	await the_Promise_Of_Before;
-	//------
+describe("......The Active describe......", () => {
 	func_1();
-	//------
-	the_Promise_Of_describe = giveMe_An_Empty_Promised_With_ResolvedState();
 });
 
-describe.skip("......The Skipped......", async () => {
-	//------
-	await the_Promise_Of_describe;
-	//------
-	the_Promise_Of_skip = giveMe_An_Empty_Promised_With_ResolvedState();
-});
-afterAll(async () => {
-	//------
-	await the_Promise_Of_skip;
-	//------
-	await after_All_Tests();
-});
+describe.skip("......The Skipped describe......", () => {});
 
-test("Did all the tests in this file get executed?", () => {
+test("Have all the tests in this file got executed ?", () => {
 	expect(the_Total_TestedFunctions_InThis_File).toEqual(3354534);
 });
+
+afterAll(async () => {
+	await after_All_Tests();
+});
+//#endregion
+
 //---------------------------------------------------------------------------------------------
+
+//#region The Second Level
+
 function func_1(): void {
 	test("......tests the function ----> func_1", () => {
 		let theTests_Counter_ForThis_Function: number = 0;
 
+		// No code yet
+
+		//The purpose of the following check is that you could delete one of the test in this function and forget to replace it. The total counter will fail, and you will know.
 		const theTotalTests_ForThisFunction: number = 1123453453;
 		expect(theTests_Counter_ForThis_Function).toEqual(theTotalTests_ForThisFunction);
 
 		the_Total_TestedFunctions_InThis_File++;
 	});
 }
-//---------------------------------------------------------------------------------------------
-function giveMe_An_Empty_Promised_With_ResolvedState(): Promise<undefined> {
-	return new Promise((res) => {
-		res(undefined);
-	});
-}
+//#endregion
+
 //---------------------------------------------------------------------------------------------

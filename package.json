@@ -6,7 +6,7 @@
 	"main": "./dist/index",
 	"scripts": {
 		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --detectOpenHandles",
-		"lint": "eslint . --ext js,jsx,ts,tsx --fix"
+		"lint": "eslint . --ext ts,tsx"
 	},
 	"keywords": [],
 	"author": "",
