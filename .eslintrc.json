@@ -13,6 +13,16 @@
 	},
 	"plugins": ["@typescript-eslint"],
 	"rules": {
+		"@typescript-eslint/explicit-module-boundary-types": ["error"],
+		"@typescript-eslint/typedef": [
+			"error",
+			{
+				"variableDeclaration": true,
+				"memberVariableDeclaration": true,
+				"parameter": true,
+				"propertyDeclaration": true
+			}
+		],
 		"@typescript-eslint/no-floating-promises": ["error"],
 		"no-console": "error",
 		"default-case": "error",
@@ -31,7 +41,7 @@
 		"@typescript-eslint/naming-convention": "off",
 		"@typescript-eslint/ban-ts-comment": "off",
 		"@typescript-eslint/no-empty-function": "off",
-		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-explicit-any": "error",
 		"no-prototype-builtins": "off",
 		"no-useless-escape": "off"
 	}
